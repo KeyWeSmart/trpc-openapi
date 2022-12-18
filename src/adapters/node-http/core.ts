@@ -161,6 +161,7 @@ export const createOpenApiNodeHttpHandler = <
           ? 'Input validation failed'
           : errorShape?.message ?? error.message ?? 'An error occurred',
         code: error.code,
+        errCode: errorShape?.errCode ? errorShape.errCode : undefined,
         issues: isInputValidationError ? (error.cause as ZodError).errors : undefined,
       };
       sendResponse(statusCode, headers, body);

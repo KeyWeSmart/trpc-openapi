@@ -146,6 +146,7 @@ export const errorResponseObject = {
         z.object({
           message: z.string(),
           code: z.string(),
+          errCode: z.string().optional(),
           issues: z.array(z.object({ message: z.string() })).optional(),
         }),
       ),

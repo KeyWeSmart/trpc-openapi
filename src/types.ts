@@ -2,7 +2,7 @@ import { Procedure, ProcedureParams, Router, RouterDef } from '@trpc/server';
 import type { RootConfig } from '@trpc/server/dist/core/internals/config';
 import { TRPC_ERROR_CODE_KEY } from '@trpc/server/rpc';
 import { OpenAPIV3 } from 'openapi-types';
-import { ZodIssue } from 'zod';
+import { ZodError, ZodErrorMap, ZodFormattedError, ZodIssue } from 'zod';
 
 export type OpenApiMethod = 'GET' | 'POST' | 'PATCH' | 'PUT' | 'DELETE';
 
@@ -59,6 +59,7 @@ export type OpenApiSuccessResponse<D = any> = D;
 export type OpenApiErrorResponse = {
   message: string;
   code: TRPC_ERROR_CODE_KEY;
+  errCode?: string;
   issues?: ZodIssue[];
 };
 
